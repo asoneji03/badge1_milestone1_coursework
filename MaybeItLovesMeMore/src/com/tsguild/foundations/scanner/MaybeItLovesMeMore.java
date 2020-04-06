@@ -16,7 +16,7 @@ public class MaybeItLovesMeMore {
 
         while (totalPetals >= 1) {
 
-            if (totalPetals % 2 == 0) {
+            if (lovesMe) {
                 lovesMe = false;
                 System.out.println("It loves me");
             } else {
