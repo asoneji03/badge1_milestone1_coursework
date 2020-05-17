@@ -6,7 +6,10 @@ import java.util.List;
 
 public class DVDLibraryView {
 
-    UserIO io = new UserIOConsoleImpl();
+    private UserIO io;
+    public DVDLibraryView(UserIO io){
+        this.io = io;
+    }
 
     public int printMenuAndGetSelection(){
         io.print("Main Menu");
@@ -131,5 +134,36 @@ public class DVDLibraryView {
         io.readString("DVD Edited. Press enter to go to main menu.");
     }
 
+    public void displaySearchDVDByTitleBanner(){
+        io.print("===Search DVD By Title===");
+    }
+
+    public void displaySearchByDVDTitle(DVD dvd){
+        if(dvd != null){
+            io.print(dvd.getTitle());
+            io.print(dvd.getReleaseDate());
+            io.print(dvd.getMpaaRating());
+            io.print(dvd.getDirectorName());
+            io.print(dvd.getStudio());
+            io.print(dvd.getUserRating());
+            io.print("");
+        }else{
+            io.print("No such dvd.");
+        }
+        io.readString("Please hit enter to continue");
+    }
+
+    public void displayExitBanner(){
+        io.print("Good bye");
+    }
+
+    public void displayUnknownCommandBanner(){
+        io.print("Unknown Command");
+    }
+
+    public void displayErrorMessage(String errorMessage){
+        io.print("===Error===");
+        io.print(errorMessage);
+    }
 
 }
